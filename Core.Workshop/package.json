@@ -1,0 +1,19 @@
+{
+  "name": "core.workshop",
+  "version": "1.0.0",
+  "description": "Asp.net Core + Typescript + Webpack 2 (WorkShop)",
+  "scripts": {
+    "build": "webpack"
+  },
+  "author": "Carlos Landeras",
+  "license": "ISC",
+  "devDependencies": {
+    "awesome-typescript-loader": "^3.0.0-beta.18",
+    "file-loader": "^0.10.0",
+    "typescript": "^2.1.5",
+    "webpack": "^2.2.1"
+  },
+  "dependencies": {
+    "axios": "^0.15.3"
+  }
+}
