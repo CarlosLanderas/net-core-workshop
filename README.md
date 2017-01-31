@@ -8,7 +8,7 @@
 
 <br/><br/>
 
-En este workshop crearemos una aplicación Asp.Net Core, y poco a poco iremos integrando una aplicación creada con Typescript en nuestro front end. El bundling de la aplicación y la carga de recursos lo realizaremos con Webpack@2.
+En este workshop crearemos una aplicación Asp.Net Core, y poco a poco iremos integrando una aplicación creada con Typescript en nuestro front end. El bundling de la aplicación y la carga de recursos lo realizaremos con Webpack@2, con el cual empezaremos desde cero.
 
 <p align="center">
 <img align="center" src="https://cdn.meme.am/cache/instances/folder937/400x/62639937.jpg" height="120" width="120">
