@@ -50,4 +50,4 @@ https://nodejs.org/dist/v6.9.4/node-v6.9.4-x64.msi
 ------------------------------------------------------------------------
 Después de haber instalado correctamente npm, ejecutamos el siguiente comando:
 
-npm install typescript -g
+**npm install typescript -g**
