@@ -6,6 +6,13 @@
 <img src="https://huangxuan.me/js-module-7day/attach/webpack-icon.png" height="120" width="200">
 <img src="http://www.typescriptlang.org/assets/images/icons/apple-touch-icon-180x180.png" height="120" width="120">
 
+<br/><br/>
+
+En este workshop crearemos una aplicación Asp.Net Core, y poco a poco iremos integrando una aplicación creada con Typescript en nuestro front end. El bundling de la aplicación y la carga de recursos lo realizaremos con Webpack@2.
+
+<p align="center">
+<img align="center" src="https://cdn.meme.am/cache/instances/folder937/400x/62639937.jpg" height="120" width="120">
+</p>
 
 <br/><br/>
 Para poder realizar el workshop tendrás que instalar los siguientes requisitos:
