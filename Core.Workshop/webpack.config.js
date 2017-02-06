@@ -1,5 +1,6 @@
 var path = require('path');
 module.exports = {    
+    devtool: 'source-map',
     entry:  {
         app:'./App/main.ts'
     },
@@ -21,6 +22,10 @@ module.exports = {
                 query: {
                     name: '[name].[ext]'
                 }
+            },
+            {
+                test: /\.tmpl$/,
+                loader: 'raw-loader'
             }
         ]
     },
