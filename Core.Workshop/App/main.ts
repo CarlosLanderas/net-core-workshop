@@ -1,5 +1,6 @@
 import axios from "axios";
 import * as _ from "underscore";
+import  { GetEventAssistants } from './services/MeetupClient';
 
 const memberList = require('./templates/memberList.tmpl');
 
@@ -10,6 +11,13 @@ jsonbutton.addEventListener('click', ()=> {
     require.ensure([], require=> {
         let jsonconfig: any = require('./config/app.config.json');        
         console.log(jsonconfig.app);
+    });
+});
+
+let loadData = document.getElementById('loaddata');
+loadData.addEventListener('click', ()=> {
+    GetEventAssistants('237364644').then( data => {
+        console.log(data);
     });
 });
 
@@ -24,7 +32,6 @@ var items = [
         {name:"Zachary"}
     ];
  
-let template = document.getElementById("usageList").innerText;
 
 document.getElementById("target").innerHTML = _.template(memberList as string)({items: items});
 
