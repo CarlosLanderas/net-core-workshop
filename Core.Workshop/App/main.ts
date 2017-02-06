@@ -1,6 +1,7 @@
 import axios from "axios";
 import * as _ from "underscore";
 import  { MeetupClient } from './services/MeetupClient';
+import { reduceArray } from './Utils/arrayUtils';
 
 const memberList = require('./templates/memberList.tmpl');
 
@@ -17,7 +18,14 @@ jsonbutton.addEventListener('click', ()=> {
 let loadData = document.getElementById('loaddata');
 loadData.addEventListener('click', ()=> {
     MeetupClient.getEventAssistants('237364644').then( data => {
-        console.log(data);
+        let members = data.results.reduce( (prev, curr) => {
+            prev.push(curr.member.name);
+            return prev;
+        }, []);
+
+        let m = reduceArray(data.results, (person: any) => person.member.name);        
+
+        console.log(m);
     });
 });
 
