@@ -1,6 +1,6 @@
 import axios from "axios";
 import * as _ from "underscore";
-import  { GetEventAssistants } from './services/MeetupClient';
+import  { MeetupClient } from './services/MeetupClient';
 
 const memberList = require('./templates/memberList.tmpl');
 
@@ -16,7 +16,7 @@ jsonbutton.addEventListener('click', ()=> {
 
 let loadData = document.getElementById('loaddata');
 loadData.addEventListener('click', ()=> {
-    GetEventAssistants('237364644').then( data => {
+    MeetupClient.getEventAssistants('237364644').then( data => {
         console.log(data);
     });
 });
