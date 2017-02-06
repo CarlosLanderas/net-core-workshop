@@ -16,17 +16,18 @@ namespace Core.Workshop.Controllers
             _meetupClient = meetupClient;
         }
 
-        [HttpGet, Route("{groupName}/{eventId}")]
+        [HttpGet, Route("event/{groupName}/{eventId}")]
         public async Task<IActionResult> GetEventInfo(string groupName, string eventId)
         {
             var result = await _meetupClient.GetEventInfo(groupName, eventId);
             return Ok(result);
         }
 
-        [HttpGet, Route("{eventId}")]
+        [HttpGet, Route("assistants/{eventId}")]
         public async Task<IActionResult> GetEventAssistants(string eventId)
         {
-            return await Task.FromResult<IActionResult>(null);
+            var result = await _meetupClient.GetEventAssistants(eventId);
+            return Ok(result);
         }
     }
 }

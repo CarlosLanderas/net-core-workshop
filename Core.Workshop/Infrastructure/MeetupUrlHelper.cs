@@ -11,5 +11,10 @@ namespace Core.Workshop.Infrastructure
         {
             return $"https://api.meetup.com/{groupName}/events/{eventId}?key={apiKey}";
         }
+
+        public static string BuildEventAssistantsUrl(string eventId, string apiKey)
+        {
+            return $"https://api.meetup.com/2/rsvps?key={apiKey}&heacount&event_id={eventId}";
+        }
     }
 }

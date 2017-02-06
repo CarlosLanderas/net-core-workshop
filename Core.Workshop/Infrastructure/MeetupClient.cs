@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Core.Workshop.Model.EventInfo;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace Core.Workshop.Infrastructure
@@ -15,21 +17,25 @@ namespace Core.Workshop.Infrastructure
         {
             _apiKey = apiKey;
         }
-        public async Task<dynamic> GetEventInfo(string groupName, string eventInfo)
+        public async Task<EventInfo> GetEventInfo(string groupName, string eventId)
         {
-            var eventInfoUrl  = MeetupUrlHelper.BuildEventInfoUrl(groupName, eventInfo, _apiKey);
-            dynamic eventResult = await _httpClient.GetStringAsync(eventInfoUrl);
-            return JObject.Parse(eventResult);
+            var eventInfoUrl  = MeetupUrlHelper.BuildEventInfoUrl(groupName, eventId, _apiKey);
+            string eventResult = await _httpClient.GetStringAsync(eventInfoUrl);
+            return JsonConvert.DeserializeObject<EventInfo>(eventResult);
         }
 
-        public dynamic GetEventAssistants()
+        public async Task<EventRSVP> GetEventAssistants(string eventId)
         {
-            throw new NotImplementedException();
+            var eventAssistantsUrl = MeetupUrlHelper.BuildEventAssistantsUrl(eventId, _apiKey);
+            string assistanceResult = await _httpClient.GetStringAsync(eventAssistantsUrl);
+            return JsonConvert.DeserializeObject<EventRSVP>(assistanceResult);
         }
 
         public void Dispose()
         {
             _httpClient.Dispose();
         }
+
+     
     }
 }
