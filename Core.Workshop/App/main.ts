@@ -7,7 +7,7 @@ import { TemplateLoader } from "./services/TemplateLoader";
 import  { MeetupClient } from './services/MeetupClient';
 import { reduceArray } from './Utils/arrayUtils';
 
-TemplateLoader.loadHeader("header");
+TemplateLoader.loadHeader(document.getElementById("header"));
 
 
 
@@ -23,10 +23,7 @@ TemplateLoader.loadHeader("header");
 let loadData = document.getElementById('loaddata');
 loadData.addEventListener('click', ()=> {
     MeetupClient.getEventAssistants('237364644').then( meetupAssistants => {
-        meetupAssistants.forEach( m => {
-            console.log(m.member.name);
-        });
-        
+        TemplateLoader.loadAssistantsTable(document.getElementById("assistants"), meetupAssistants);        
     });
 });
 

@@ -4,7 +4,7 @@ require("bootstrap/dist/css/bootstrap.min.css");
 require("./assets/css/main.css");
 const TemplateLoader_1 = require("./services/TemplateLoader");
 const MeetupClient_1 = require("./services/MeetupClient");
-TemplateLoader_1.TemplateLoader.loadHeader("header");
+TemplateLoader_1.TemplateLoader.loadHeader(document.getElementById("header"));
 // let jsonbutton = document.getElementById('jsonbutton');
 // jsonbutton.addEventListener('click', ()=> {
 //     require.ensure([], require=> {
@@ -15,9 +15,7 @@ TemplateLoader_1.TemplateLoader.loadHeader("header");
 let loadData = document.getElementById('loaddata');
 loadData.addEventListener('click', () => {
     MeetupClient_1.MeetupClient.getEventAssistants('237364644').then(meetupAssistants => {
-        meetupAssistants.forEach(m => {
-            console.log(m.member.name);
-        });
+        TemplateLoader_1.TemplateLoader.loadAssistantsTable(document.getElementById("assistants"), meetupAssistants);
     });
 });
 // var items = [

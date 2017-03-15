@@ -1,0 +1,26 @@
+﻿<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Photo</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <% _.each(assistants,function(item,key,list){ %>
+        <% console.log(item) %>
+        <tr>            
+            <td><%= item.member.member_id %></td>
+            <td><%= item.member.name %></td>
+            <td>
+                <% if (item.photo !== null) { %>
+                    <img id="memberphoto" src=<%= item.photo.photo_link %> />
+                <% } %>
+            </td>
+            
+        </tr>
+        <% }); %>
+        
+    </tbody>
+</table>

@@ -14,3 +14,8 @@
     background-color: white !important;
     height: 115px !important;
 }
+
+#memberphoto {
+    width: 100px;
+    height: 100px;
+}

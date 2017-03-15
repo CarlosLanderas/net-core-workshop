@@ -4,7 +4,7 @@
   "description": "Asp.net Core + Typescript + Webpack 2 (WorkShop)",
   "scripts": {
     "build": "rimraf wwwroot/dist && webpack",
-    "dev": "rimraf wwwroot/dist && webpack -w"
+    "dev": "webpack -w"
   },
   "author": "Carlos Landeras",
   "license": "ISC",
