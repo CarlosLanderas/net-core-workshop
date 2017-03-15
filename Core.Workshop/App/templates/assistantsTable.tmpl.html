@@ -3,6 +3,7 @@
         <tr>
             <th>Id</th>
             <th>Name</th>
+            <th>Response</th>
             <th>Photo</th>
             
         </tr>
@@ -12,7 +13,8 @@
         <% console.log(item) %>
         <tr>            
             <td><%= item.member.member_id %></td>
-            <td><%= item.member.name %></td>
+            <td><b><%= item.member.name %></b></td>
+            <td><%= item.response %></td>
             <td>
                 <% if (item.photo !== null) { %>
                     <img id="memberphoto" src=<%= item.photo.photo_link %> />

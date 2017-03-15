@@ -13,7 +13,8 @@ declare module MeetUp {
 
     interface MeetupAssistant {
         member: Member;
-        photo: MemberPhoto
+        photo: MemberPhoto;
+        response: string;
     }
 }
 
