@@ -9,8 +9,8 @@ module.exports = {
         vendors: ['jquery', 'bootstrap', 'axios']
     },
     output: {
-        path: './wwwroot/dist',
-        publicPath: './dist/',
+        path: path.resolve(__dirname,'wwwroot/dist'),
+        publicPath: '/dist/',
         filename: '[name].bundle.js'
     },
     resolve: {
@@ -31,7 +31,7 @@ module.exports = {
                 }
             },
             {
-                test: /\.tmpl$/,
+                test: /\.tmpl.html$/,
                 loader: 'raw-loader'
             },
             {
@@ -40,7 +40,12 @@ module.exports = {
             },
             {
                 test: /\.(woff|woff2|ttf|eot|svg)$/,
-                use: 'file-loader?name=fonts/[name].[ext]'
+                use:  { 
+                    loader: 'file-loader',
+                    options: {
+                        name : '[name].[ext]'
+                    }
+                }
             }
 
         ]

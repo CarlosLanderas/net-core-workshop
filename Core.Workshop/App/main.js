@@ -5,7 +5,10 @@ require("./assets/css/main.css");
 const _ = require("underscore");
 const MeetupClient_1 = require("./services/MeetupClient");
 const arrayUtils_1 = require("./Utils/arrayUtils");
-const memberList = require('./templates/memberList.tmpl');
+const logo = require('./assets/images/meetup.png');
+const memberList = require('./templates/memberList.tmpl.html');
+const headerTemplate = require('./templates/header.tmpl.html');
+document.getElementById("header").innerHTML = _.template(headerTemplate)({ logo });
 let jsonbutton = document.getElementById('jsonbutton');
 jsonbutton.addEventListener('click', () => {
     require.ensure([], require => {

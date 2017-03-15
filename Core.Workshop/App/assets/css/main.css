@@ -1,9 +1,9 @@
-.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus{
-    background-color: #ed1c40 !important;
+#logo {
+     height: 80px;
+     width: 150px;
 }
-
 .navbar-default .navbar-link {
-    background-color: #ed1c40 !important;
+    background-color: white !important;
 }
 
 .navbar .nav>li>a  {
@@ -11,6 +11,6 @@
 }
 
 .navbar-default {
-    background-color: #ed1c40 !important;
+    background-color: white !important;
     height: 115px !important;
 }
