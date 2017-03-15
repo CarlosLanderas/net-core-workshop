@@ -2,39 +2,32 @@
 require("bootstrap/dist/js/bootstrap");
 require("bootstrap/dist/css/bootstrap.min.css");
 require("./assets/css/main.css");
-const _ = require("underscore");
+const TemplateLoader_1 = require("./services/TemplateLoader");
 const MeetupClient_1 = require("./services/MeetupClient");
-const arrayUtils_1 = require("./Utils/arrayUtils");
-const logo = require('./assets/images/meetup.png');
-const memberList = require('./templates/memberList.tmpl.html');
-const headerTemplate = require('./templates/header.tmpl.html');
-document.getElementById("header").innerHTML = _.template(headerTemplate)({ logo });
-let jsonbutton = document.getElementById('jsonbutton');
-jsonbutton.addEventListener('click', () => {
-    require.ensure([], require => {
-        let jsonconfig = require('./config/app.config.json');
-        console.log(jsonconfig.app);
-    });
-});
+TemplateLoader_1.TemplateLoader.loadHeader("header");
+// let jsonbutton = document.getElementById('jsonbutton');
+// jsonbutton.addEventListener('click', ()=> {
+//     require.ensure([], require=> {
+//         let jsonconfig: any = require('./config/app.config.json');        
+//         console.log(jsonconfig.app);
+//     });
+// });
 let loadData = document.getElementById('loaddata');
 loadData.addEventListener('click', () => {
-    MeetupClient_1.MeetupClient.getEventAssistants('237364644').then(data => {
-        let members = data.results.reduce((prev, curr) => {
-            prev.push(curr.member.name);
-            return prev;
-        }, []);
-        let m = arrayUtils_1.reduceArray(data.results, (person) => person.member.name);
-        console.log(m);
+    MeetupClient_1.MeetupClient.getEventAssistants('237364644').then(meetupAssistants => {
+        meetupAssistants.forEach(m => {
+            console.log(m.member.name);
+        });
     });
 });
-var items = [
-    { name: "Alexander" },
-    { name: "Barklay" },
-    { name: "Chester" },
-    { name: "Domingo" },
-    { name: "Edward" },
-    { name: "..." },
-    { name: "Yolando" },
-    { name: "Zachary" }
-];
-document.getElementById("target").innerHTML = _.template(memberList)({ items: items });
+// var items = [
+//         {name:"Alexander"},
+//         {name:"Barklay"},
+//         {name:"Chester"},
+//         {name:"Domingo"},
+//         {name:"Edward"},
+//         {name:"..."},
+//         {name:"Yolando"},
+//         {name:"Zachary"}
+//     ];
+// document.getElementById("target").innerHTML = _.template(memberList as string)({items: items});

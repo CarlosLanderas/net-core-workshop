@@ -27,7 +27,8 @@ namespace Core.Workshop.Controllers
         public async Task<IActionResult> GetEventAssistants(string eventId)
         {
             var result = await _meetupClient.GetEventAssistants(eventId);
-            return Ok(result);
+            var members = result.results.Select(m => new { Member = m.member, Photo = m.member_photo});
+            return Ok(members);
         }
     }
 }
