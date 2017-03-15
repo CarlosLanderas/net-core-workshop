@@ -1,20 +1,27 @@
 var path = require('path');
-module.exports = {    
+const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+module.exports = {
     devtool: 'source-map',
-    entry:  {
-        app:'./App/main.ts'
+    entry: {
+        app: './App/main.ts',
+        vendors: ['jquery', 'bootstrap', 'axios']
     },
     output: {
         path: './wwwroot/dist',
         publicPath: './dist/',
         filename: '[name].bundle.js'
     },
-    module: {        
+    resolve: {
+        extensions: ['.js', '.ts']
+    },
+    module: {
         rules: [
             {
                 test: /\.ts$/,
                 loader: 'awesome-typescript-loader',
-                exclude : ['node_modules']
+                exclude: ['node_modules']
             },
             {
                 test: /\.(png|jpg)$/,
@@ -26,12 +33,30 @@ module.exports = {
             {
                 test: /\.tmpl$/,
                 loader: 'raw-loader'
+            },
+            {
+                use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' }),
+                test: /\.css$/
+            },
+            {
+                test: /\.(woff|woff2|ttf|eot|svg)$/,
+                use: 'file-loader?name=fonts/[name].[ext]'
             }
+
         ]
     },
-    resolve: {
-            extensions: ['.js', '.ts']
-    }
+
+    plugins: [
+        new ExtractTextPlugin("site.css"),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendors'
+        }),
+        new webpack.ProvidePlugin({
+            jQuery: 'jquery',
+            $: 'jquery',
+            jquery: 'jquery'
+        })
+    ]
 }
 
 

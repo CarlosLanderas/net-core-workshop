@@ -1,3 +1,7 @@
+import 'bootstrap/dist/js/bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './assets/css/main.css';
+
 import axios from "axios";
 import * as _ from "underscore";
 import  { MeetupClient } from './services/MeetupClient';
@@ -5,7 +9,7 @@ import { reduceArray } from './Utils/arrayUtils';
 
 const memberList = require('./templates/memberList.tmpl');
 
-let logo = require("./images/usermessage.png");
+
 
 let jsonbutton = document.getElementById('jsonbutton');
 jsonbutton.addEventListener('click', ()=> {
