@@ -15,6 +15,7 @@ declare module MeetUp {
         member: Member;
         photo: MemberPhoto;
         response: string;
+        group: string;
     }
 }
 

@@ -2,6 +2,7 @@
     <thead>
         <tr>
             <th>Id</th>
+            <th>Group</th>
             <th>Name</th>
             <th>Response</th>
             <th>Photo</th>
@@ -13,6 +14,7 @@
         <% console.log(item) %>
         <tr>            
             <td><%= item.member.member_id %></td>
+            <td><%= item.group %></td>
             <td><b><%= item.member.name %></b></td>
             <td><%= item.response %></td>
             <td>
