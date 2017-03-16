@@ -17,5 +17,12 @@ declare module MeetUp {
         response: string;
         group: string;
     }
+
+    interface MeetupEvent {
+        name: string,
+        location: string,
+        address: string;
+        description: string
+    }
 }
 

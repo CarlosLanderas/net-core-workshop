@@ -20,7 +20,15 @@ namespace Core.Workshop.Controllers
         public async Task<IActionResult> GetEventInfo(string groupName, string eventId)
         {
             var result = await _meetupClient.GetEventInfo(groupName, eventId);
-            return Ok(result);
+            var eventInfo = new
+            {
+                Name = result.name,
+                Location = result.venue.name,
+                Address = result.venue.address_1,
+                Description = result.description
+            };
+
+            return Ok(eventInfo);
         }
 
         [HttpGet, Route("assistants/{eventId}")]

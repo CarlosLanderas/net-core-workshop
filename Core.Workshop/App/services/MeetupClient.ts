@@ -13,4 +13,14 @@ export class MeetupClient {
             });
         });
     }
+
+    public static getEventInfo(groupName: string, eventId: string): Promise<MeetUp.MeetupEvent>{        
+          return new Promise((resolve, reject) => {
+            axios.get(`${MeetupClient.apiURL}/meetup/event/${groupName}/${eventId}`).then(response => {
+                resolve(response.data as Array<MeetUp.MeetupEvent>);
+            }).catch(error => {
+                reject(error);
+            });
+        });
+    }
 }

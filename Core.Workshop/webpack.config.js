@@ -9,7 +9,7 @@ module.exports = {
         vendors: ['jquery', 'bootstrap', 'axios']
     },
     output: {
-        path: path.resolve(__dirname,'wwwroot/dist'),
+        path: path.resolve(__dirname, 'wwwroot/dist'),
         publicPath: '/dist/',
         filename: '[name].bundle.js'
     },
@@ -35,15 +35,19 @@ module.exports = {
                 loader: 'raw-loader'
             },
             {
+                test: /\.json$/,
+                use: 'json-loader'
+            },
+            {
                 use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' }),
                 test: /\.css$/
             },
             {
                 test: /\.(woff|woff2|ttf|eot|svg)$/,
-                use:  { 
+                use: {
                     loader: 'file-loader',
                     options: {
-                        name : '[name].[ext]'
+                        name: '[name].[ext]'
                     }
                 }
             }
