@@ -10,8 +10,7 @@
         </tr>
     </thead>
     <tbody>
-        <% _.each(assistants,function(item,key,list){ %>
-        <% console.log(item) %>
+        <% _.each(assistants,function(item,key,list){ %>        
         <tr>            
             <td><%= item.member.member_id %></td>
             <td><%= item.group %></td>
@@ -20,7 +19,10 @@
             <td>
                 <% if (item.photo !== null) { %>
                     <img id="memberphoto" src=<%= item.photo.photo_link %> />
-                <% } %>
+                <% }
+                 else {  %>
+                    <img id="memberphoto" src=<%= noPhotoLogo %> />
+                 <% } %>
             </td>
             
         </tr>

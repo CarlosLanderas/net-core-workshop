@@ -15,6 +15,10 @@
     height: 115px !important;
 }
 
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    background-color: white;
+}
+
 #memberphoto {
     width: 100px;
     height: 100px;
@@ -22,4 +26,8 @@
 
 a {
     cursor:pointer;
+}
+
+.top-buffer-20 {
+    margin-top: 20px;
 }
