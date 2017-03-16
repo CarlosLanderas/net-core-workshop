@@ -3,27 +3,19 @@ import './assets/css/main.css';
 
 import { TemplateLoader } from "./services/TemplateLoader";
 const appConfiguration = require('./config/app.config.json') as AppConfiguration;
-import  { MeetupClient } from './services/MeetupClient';
-
+import { MeetupClient } from './services/MeetupClient';
 
 TemplateLoader.loadHeader(document.getElementById("header"));
 import "./pages/eventInfoPage";
 
-// let jsonbutton = document.getElementById('jsonbutton');
-// jsonbutton.addEventListener('click', ()=> {
-//     require.ensure([], require=> {
-//         let jsonconfig: any = require('./config/app.config.json');        
-//         console.log(jsonconfig.app);
-//     });
-// });
 
 let loadData = document.getElementById('assistants');
-loadData.addEventListener('click', ()=> {
-    let domElement = document.getElementById("data-load");
-    MeetupClient.getEventAssistants(appConfiguration.eventId).then( meetupAssistants => {
-        TemplateLoader.cleanElement(domElement)
-        TemplateLoader.loadAssistantsTable(domElement, meetupAssistants);        
-    });
+loadData.addEventListener('click', () => {
+        require.ensure([], require => {
+                var eventAssistants: () => void = require('./pages/eventAssistantsPage').default;
+                eventAssistants();
+        }, 'assistantsChunk');
+
 });
 
 // var items = [
@@ -36,7 +28,7 @@ loadData.addEventListener('click', ()=> {
 //         {name:"Yolando"},
 //         {name:"Zachary"}
 //     ];
- 
+
 
 // document.getElementById("target").innerHTML = _.template(memberList as string)({items: items});
 
