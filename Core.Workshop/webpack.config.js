@@ -6,7 +6,7 @@ module.exports = {
     devtool: 'source-map',
     entry: {
         app: './App/main.ts',
-        vendors: ['jquery', 'bootstrap', 'axios']
+        vendors: ['jquery', 'bootstrap', 'axios', 'underscore']
     },
     output: {
         path: path.resolve(__dirname, 'wwwroot/dist'),
@@ -25,8 +25,9 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg)$/,
-                loader: 'file-loader',
-                query: {
+                loader: 'url-loader',
+                options: {
+                    limit: 12000,
                     name: '[name].[ext]'
                 }
             },
