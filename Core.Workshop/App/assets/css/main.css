@@ -1,0 +1,33 @@
+#logo {
+     height: 80px;
+     width: 150px;
+}
+.navbar-default .navbar-link {
+    background-color: white !important;
+}
+
+.navbar .nav>li>a  {
+    font-size:15px !important;
+}
+
+.navbar-default {
+    background-color: white !important;
+    height: 115px !important;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    background-color: white;
+}
+
+#memberphoto {
+    width: 100px;
+    height: 100px;
+}
+
+a {
+    cursor:pointer;
+}
+
+.top-buffer-20 {
+    margin-top: 20px;
+}
