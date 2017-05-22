@@ -2,6 +2,9 @@
 **WorkShop Seed project - Asp.Net Core with Typescript and Webpack2**
 
 
+**EDIT: After the Workshop the work was uploaded to a branch named : Final**
+
+
 <img src="https://avatars2.githubusercontent.com/u/9141961?v=3&s=400" height="120" width="120">
 <img src="https://huangxuan.me/js-module-7day/attach/webpack-icon.png" height="120" width="200">
 <img src="http://www.typescriptlang.org/assets/images/icons/apple-touch-icon-180x180.png" height="120" width="120">
